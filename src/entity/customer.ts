@@ -5,6 +5,7 @@ export class Customer {
     private _name: string = ""
     private _address!: Address
     private _active: boolean = true
+    private _rewardPoints: number = 0
 
     constructor(id: string, name: string) {
         this._id = id
@@ -24,6 +25,13 @@ export class Customer {
     changeName(name: string) {
         this._name = name
         this.validate()
+    }
+
+    addRewardPoints(points: number) {
+        if (points < 1) {
+            throw new Error('Points must be a positive number')
+        }
+        this._rewardPoints += points
     }
 
     isActive(): boolean {
@@ -47,5 +55,13 @@ export class Customer {
 
     get name(): string {
         return this._name
+    }
+
+    get rewardPoints(): number {
+        return this._rewardPoints
+    }
+
+    get id(): string {
+        return this._id
     }
 }
