@@ -30,6 +30,22 @@ export class Order {
         return true
     }
 
+    get id() {
+        return this._id
+    }
+
+    get items() {
+        return this._items
+    }
+
+    get customerId() {
+        return this._customerId
+    }
+
+    addItem(item: OrderItem) {
+        this._items.push(item)
+    }
+
     total() {
         return this._items.reduce((acc, item) => acc + item.orderItemTotal(), 0)
     }

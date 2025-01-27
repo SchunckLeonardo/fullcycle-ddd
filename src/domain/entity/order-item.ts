@@ -1,9 +1,9 @@
 export class OrderItem {
-    _id: string
-    _productId: string
-    _name: string
-    _price: number
-    _quantity: number
+    private _id: string
+    private _productId: string
+    private _name: string
+    private _price: number
+    private _quantity: number
 
     constructor(id: string, productId: string, name: string, price: number, quantity: number) {
         this._id = id
@@ -14,12 +14,24 @@ export class OrderItem {
         this.validate()
     }
 
+    get id(): string {
+        return this._id
+    }
+
+    get name(): string {
+        return this._name
+    }
+
     get price(): number {
         return this._price
     }
 
     get quantity(): number {
         return this._quantity
+    }
+
+    get productId(): string {
+        return this._productId
     }
 
     orderItemTotal(): number {
